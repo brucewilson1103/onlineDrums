@@ -1,4 +1,3 @@
-alert("test")
 for (var i = 0; i < document.querySelectorAll(".drum").length; i++) {
 
   // listening for button press
@@ -7,11 +6,15 @@ for (var i = 0; i < document.querySelectorAll(".drum").length; i++) {
       var buttonInnerHTML = this.innerHTML;
       drumbeat(buttonInnerHTML)
 
+      buttonanimation(buttonInnerHTML);
+
   });
 }
 // listening for key press
 document.addEventListener("keypress", function (event) {
   drumbeat(event.key);
+
+  buttonanimation(event.key);
 });
 
 function drumbeat(key) {
@@ -49,3 +52,12 @@ function drumbeat(key) {
           console.log(buttonInnerHTML);
   }
 }
+
+function buttonanimation(currentkey) {
+  var activebtn = document.querySelector("." + currentkey)
+  activebtn.classList.add("pressed");
+  setTimeout(function () {
+      activebtn.classList.remove("pressed");
+  }, 100);
+
+};

@@ -11,7 +11,7 @@ for (var i = 0; i < document.querySelectorAll(".drum").length; i++) {
   });
 }
 // listening for key press
-document.addEventListener("keypress", function (event) {
+document.addEventListener("keydown", function (event) {
   drumbeat(event.key);
 
   buttonanimation(event.key);
